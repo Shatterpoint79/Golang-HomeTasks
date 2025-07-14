@@ -12,7 +12,7 @@ func main() {
 		myBin.ID,
 		myBin.Name,
 		myBin.Private,
-		myBin.CreatedAt.Format("2025-01-01 15:04:05"),
+		myBin.CreatedAt.Format("2006-01-02 15:04:05"),
 	)
 
 	binList := bins.NewBinList()

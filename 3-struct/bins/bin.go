@@ -7,7 +7,6 @@ import (
 	"time"
 )
 
-// Bin представляет один бинарный объект
 type Bin struct {
 	ID        string    `json:"id"`
 	Private   bool      `json:"private"`
