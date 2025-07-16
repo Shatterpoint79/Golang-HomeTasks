@@ -2,7 +2,7 @@ package storage
 
 import (
 	"api/binjson/bins"
-	"api/binjson/file"
+	"api/binjson/files"
 	"encoding/json"
 	"errors"
 	"os"
@@ -30,15 +30,15 @@ func (s *Storage) SaveBinList(binList *bins.BinList) error {
 		return err
 	}
 
-	return file.WriteFile(data, s.FilePath)
+	return files.WriteFile(data, s.FilePath)
 }
 
 func (s *Storage) LoadBinList() (*bins.BinList, error) {
-	if !file.IsJSON(s.FilePath) {
+	if !files.IsJSON(s.FilePath) {
 		return nil, errors.New("это не JSON-файл")
 	}
 
-	data, err := file.ReadFile(s.FilePath)
+	data, err := files.ReadFile(s.FilePath)
 	if err != nil {
 		if os.IsNotExist(err) {
 			return bins.NewBinList(), nil
